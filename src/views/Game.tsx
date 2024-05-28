@@ -6,7 +6,7 @@ import Podium from '../components/Podium'
 import Match from '../components/Match'
 import FifaRank from '../components/FifaRank';
 import { teamsService } from '../services/teams.services';
-import logoworldcup from '../assets/world-cup-2022-logo.svg'
+import logo1 from '../assets/logo1.png'
 import { AuthContext } from '../context/AuthContext';
 import AllMatches from '../components/AllMatches';
 import UsersRank from '../components/UsersRank';
@@ -55,10 +55,6 @@ function Game() {
     { label: 'Grupo B', key: 'B', children: <div className='matches'>{listMatches}</div> },
     { label: 'Grupo C', key: 'C', children: <div className='matches'>{listMatches}</div> },
     { label: 'Grupo D', key: 'D', children: <div className='matches'>{listMatches}</div> },
-    { label: 'Grupo E', key: 'E', children: <div className='matches'>{listMatches}</div> },
-    { label: 'Grupo F', key: 'F', children: <div className='matches'>{listMatches}</div> },
-    { label: 'Grupo G', key: 'G', children: <div className='matches'>{listMatches}</div> },
-    { label: 'Grupo H', key: 'H', children: <div className='matches'>{listMatches}</div> },
     { label: 'Todos los partidos', key: 'all', children: <div className='matches'><AllMatches  service={service}/></div> },
 
   ];
@@ -100,7 +96,7 @@ function Game() {
         <h1>{auth.names}</h1>
         <h2>{auth.score} puntos</h2>
       </Header>
-      <img src={logoworldcup} alt="" className='img-logo'/>
+      <img src={logo1} alt="" className='img-logo'/>
       <div className='container-podium-rank'>
         <Podium service={service} teamsSelect={teamsSelect}/>
       </div>

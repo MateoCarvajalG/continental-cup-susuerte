@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'Qatar2022';
-  src: local('Qatar2022'), url(./assets/fonts/Qatar2022-Bold.otf) format('truetype');
+  src: local('Qatar2022'), url(./assets/fonts/Branding Medium.otf) format('truetype');
 }
 @font-face {
   font-family: 'Qatar2022-Arabic-Medium';
-  src: local('Qatar2022-Arabic-Medium'), url(./assets/fonts/Qatar2022Arabic-Medium.otf) format('truetype');
+  src: local('Qatar2022-Arabic-Medium'), url(./assets/fonts/Branding\ Bold\ Italic.otf) format('truetype');
 }
 @font-face {
   font-family: 'Qatar2022-Heavy';
-  src: local('Qatar2022-Heavy'), url(./assets/fonts/Qatar2022-Heavy.otf) format('truetype');
+  src: local('Qatar2022-Heavy'), url(./assets/fonts/Branding Black.otf.otf) format('truetype');
 }
 .login{
   min-height: 100vh;
@@ -36,14 +36,14 @@
 }
 .App{
   min-height: 100vh;
-  /* background-color: #8b1638; */
-  background-color: #020f2a;
+
+  background-size: cover;
   min-width: 320px;
   
   font-family: Qatar2022;
 }
 .content-header{
-  background: #8b1638;
+  background: rgb(0 50 130/1);
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
@@ -54,6 +54,8 @@
   width: 200px;
 }
 .container-podium-rank{
+  background: url("./assets/copa-america-bg.png") no-repeat center
+    center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -75,6 +77,13 @@
  margin: auto;
  display: flex;
  flex-direction: column;
+}
+.modal-detail-match h1,h2,h3{
+  color:white;
+
+}
+.modal-detail-match .ant-table,.ant-table-thead > tr > th{
+  background-color:rgb(0 50 130/1)
 }
 .container-fifa-rank .ant-table {
   background: transparent !important;
@@ -126,11 +135,16 @@
 }
 .container-match{
   position: relative;
-  color: #81163b;
+  color:white;
+  background: rgba(0,0,0,.3);
   width: 20%;
   min-width: 297px;
   min-height: 297px;
-  margin: 0 2%;
+  margin: 2% 2%;
+  border-radius: 20px;
+}
+.container-match h3,h1,h2 {
+  color:white;
 }
 .content-match{
   position: absolute;
@@ -143,8 +157,6 @@
   width: 100%;
 }
 .teams{
-  background-color: #eeeee4;
-  border-radius: .625rem;
   display: flex;
   align-content: center;
   font-size: 1.5rem;
@@ -168,11 +180,19 @@
 .ant-table-thead > tr > th{
   color: white;
 }
+.tabs-group{
+  background: rgb(0 50 130/1);
+}
 .tabs-group .ant-tabs-tab {
   color: rgba(255, 255, 255, 0.85) !important;
   font-size: 23px;
 }
+
+.ant-modal-header{
+ background: rgb(0 50 130/1);   
+}
 .ant-modal-content{
+  background: rgb(0 50 130/1);   
   font-family: Qatar2022 !important;
 }
 .ant-modal-content .modal-my-result{

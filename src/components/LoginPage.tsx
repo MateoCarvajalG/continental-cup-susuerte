@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import {  Button, Checkbox, Form, Input, Modal, notification  } from 'antd';
 import ModalUserRegister from "./ModalUserRegister";
 import { showError } from "../alerts";
-
+import logo from '../assets/logo.png'
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -36,7 +36,7 @@ function LoginPage() {
 
   return (
     <div className="login">
-      <img src="https://q22b2ctemplates.blob.core.windows.net/dev/images/q22.svg" className="img-logo-login" alt="" />
+      <img src={logo} className="img-logo-login" alt="" />
       <div className="form-login">
         <h1>Ingresa con tu documento de identidad</h1>
         <Form
