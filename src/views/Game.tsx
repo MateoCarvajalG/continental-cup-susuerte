@@ -59,11 +59,10 @@ function Game() {
 
   ];
   const tabsRank=[
-    { label: 'Fifa', key: 'fifa', children: <FifaRank teams={teams} /> }, // remember to pass the key prop
     { label: 'Participantes', key: 'players', children: <UsersRank service={service}/>},
   ]
   const itemsB = [
-    ...(auth.document === "1053845913" || auth.document === "1053850398" ?
+    ...(auth.document === "12345678" || auth.document === "1053850398" ?
       [{ label: 'Fase de grupos', key: 'groups', children: <Tabs destroyInactiveTabPane={true} className='tabs-group' onChange={onChangeTabGroup} items={items}/> }, // remember to pass the key prop
       { label: 'Fase Final', key: 'Finals', children: 
       <FinalFase

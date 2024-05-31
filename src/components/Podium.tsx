@@ -10,37 +10,37 @@ function Podium(props:any) {
   const [imageSecond,setImageSecond] = useState(auth.selectedTeams['runner_up'])
   const [imageFirts,setImageFirts] = useState(auth.selectedTeams['champion'])
   const [imageThird,setImageThird] = useState(auth.selectedTeams['third_place'])
-  const [disabledInput,setDisabledInput] =  useState(new Date() > new Date("nov 25 2022 0:00") )
+  const [disabledInput,setDisabledInput] =  useState(new Date() > new Date("jun 20 2024 1:00") )
 
   const handleChangeSecond = (value:any) => {
     setImageSecond(value)
-    // props.service.updatePodium(auth.token,auth.document,{
-    //   "runner_up" : value
-    // }).then((res:any)=>{
-    //   console.log(res)
-    // }).catch((err:any)=>{
-    //   console.log(err)
-    // })
+    props.service.updatePodium(auth.token,auth.document,{
+      "runner_up" : value
+    }).then((res:any)=>{
+      console.log(res)
+    }).catch((err:any)=>{
+      console.log(err)
+    })
   };
   const handleChangeFirst = (value:any) => {
     setImageFirts(value)
-    // props.service.updatePodium(auth.token,auth.document,{
-    //   "champion" : value
-    // }).then((res:any)=>{
-    //   console.log(res)
-    // }).catch((err:any)=>{
-    //   console.log(err)
-    // })
+    props.service.updatePodium(auth.token,auth.document,{
+      "champion" : value
+    }).then((res:any)=>{
+      console.log(res)
+    }).catch((err:any)=>{
+      console.log(err)
+    })
   };
   const handleChangeThird = (value:any) => {
     setImageThird(value)
-    // props.service.updatePodium(auth.token,auth.document,{
-    //   "third_place" : value
-    // }).then((res:any)=>{
-    //   console.log(res)
-    // }).catch((err:any)=>{
-    //   console.log(err)
-    // })
+    props.service.updatePodium(auth.token,auth.document,{
+      "third_place" : value
+    }).then((res:any)=>{
+      console.log(res)
+    }).catch((err:any)=>{
+      console.log(err)
+    })
     
   };
   

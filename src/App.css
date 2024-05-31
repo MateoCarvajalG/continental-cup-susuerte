@@ -85,18 +85,18 @@
 .modal-detail-match .ant-table,.ant-table-thead > tr > th{
   background-color:rgb(0 50 130/1)
 }
-.container-fifa-rank .ant-table {
+.ant-table {
   background: transparent !important;
 }
-.container-fifa-rank .ant-table-thead > tr > th {
+.ant-table-thead > tr > th {
   background: transparent !important;
 }
-.container-fifa-rank .ant-table-tbody > tr > td {
+.ant-table-tbody > tr > td {
   border-bottom: none !important;
 }
 
 .container-fifa-rank .ant-table-tbody > tr.ant-table-row:hover > td, .ant-table-tbody > tr > td.ant-table-cell-row-hover {
-  background: #7d1030 !important;
+  background: rgba(0,0,0,.3) !important;
 }
 .container-fifa-rank a {
   color: white;
@@ -143,15 +143,13 @@
   margin: 2% 2%;
   border-radius: 20px;
 }
-.container-match h3,h1,h2 {
+.container-match h3,h1,h2,h4,h5 {
   color:white;
 }
 .content-match{
-  position: absolute;
-  top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -189,7 +187,8 @@
 }
 
 .ant-modal-header{
- background: rgb(0 50 130/1);   
+  background: rgb(0 50 130/1);   
+  border-bottom: 1px solid rgba(0,0,0,.3);
 }
 .ant-modal-content{
   background: rgb(0 50 130/1);   
@@ -203,6 +202,12 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.modal-detail-match .my-points{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .in-develop{
   display: flex;

@@ -4,7 +4,6 @@ import SquareMatch from "./SquareMatch";
 import worldCup from '../assets/worldcup.png'
 
 function FinalFase(props:any) {
-  const [matchesRound16,setMatchesRound16]= useState([])
   const [matchesQuarters,setMatchesQuarters]= useState([])
   const [matchesSemiFinals,setMatchesSemiFinals]= useState([])
   const [matchFinal,setMatchFinal]= useState([])
@@ -12,7 +11,6 @@ function FinalFase(props:any) {
 
   
   useEffect(()=>{
-    setMatchesRound16(props.matches.filter((match:any)=>match.group === 'Round of 16'))
     setMatchesQuarters(props.matches.filter((match:any)=>match.group === 'Quarter finals'))
     setMatchesSemiFinals(props.matches.filter((match:any)=>match.group === 'Semi finals'))
     setThirdPlaceMatch(props.matches.filter((match:any)=>match.group === 'Third place'))
@@ -21,16 +19,6 @@ function FinalFase(props:any) {
   return (
     <>
       <div className="Square">
-        <div  className="fase">
-          {
-            matchesRound16.map((match:any)=>{
-              return(
-                <SquareMatch service={props.service} match={match}/>
-              )
-            })
-          }
-          
-        </div>
         <div className="fase">
           {
             matchesQuarters.map((match:any)=>{
