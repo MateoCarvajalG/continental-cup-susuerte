@@ -53,6 +53,9 @@
   top: 0;
   width: 200px;
 }
+.ant-drawer-body{
+  padding: 0;
+}
 .container-podium-rank{
   background: url("./assets/copa-america-bg.png") no-repeat center
     center;
@@ -60,6 +63,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.btn-rules{
+  position: absolute;
+  left:0;
+}
+.btn-simulator{
+  position: absolute;
+  right: 0;
 }
 .container-podium{
   background: url(./assets/podium.png) no-repeat bottom left;
