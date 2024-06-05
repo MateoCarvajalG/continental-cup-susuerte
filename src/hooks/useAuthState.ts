@@ -13,6 +13,7 @@ interface IPodium{
   interface IUserInfo{
     token: string | null,
     names: string | null,
+    role: 'user' | 'admin' | null,
     document: string | null,
     score : string | null,
     selectedTeams: IPodium,
@@ -24,6 +25,7 @@ interface IPodium{
 const initialState:IUserInfo={
     token : null,
     names : null,
+    role:null,
     document: null,
     score : null,
     selectedTeams: {
@@ -80,11 +82,12 @@ const useAuthState = () => {
   let signin = async (Credentials: string) => {
       const resp = await service.signIn(Credentials)
       if(resp!.status === 200) {
-        const {token,names,document,score,selected_teams,matches_results,logged} = resp!.data
+        const {token,names,document,score,selected_teams,matches_results,logged,role} = resp!.data
         localStorage.setItem('token', token);
         authDispatch({
             type:"LOGIN",
             payload: {
+              role: role,
               token: token,
               checking: false,
               logged: true,

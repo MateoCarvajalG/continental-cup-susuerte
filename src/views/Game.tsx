@@ -82,7 +82,7 @@ function Game() {
     { label: 'Participantes', key: 'players', children: <UsersRank service={service}/>},
   ]
   const itemsB = [
-    ...(auth.document === "1053845913" || auth.document === "1053850398" ?
+    ...(auth.role === 'admin' ?
       [{ label: 'Fase de grupos', key: 'groups', children: <Tabs destroyInactiveTabPane={true} className='tabs-group' onChange={onChangeTabGroup} items={items}/> }, // remember to pass the key prop
       { label: 'Fase Final', key: 'Finals', children: 
       <FinalFase
