@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import 'antd/dist/antd.css'
 import SquareMatch from "./SquareMatch";
-import worldCup from '../assets/worldcup.png'
+import Cup from '../assets/copa-america-1.webp'
 
 function FinalFase(props:any) {
-  const [matchesQuarters,setMatchesQuarters]= useState([])
+  const [matchesQuarters,setMatchesQuarters]= useState<any>([])
   const [matchesSemiFinals,setMatchesSemiFinals]= useState([])
   const [matchFinal,setMatchFinal]= useState([])
   const [thirdPlaceMatch,setThirdPlaceMatch]=useState([])
@@ -47,7 +47,7 @@ function FinalFase(props:any) {
             }
         </div>
         <div className="fase final">
-          <img src={worldCup} className="img-worldcup" />
+          <img src={Cup} className="img-worldcup" />
           {
             matchFinal.map((match:any)=>{
               return(

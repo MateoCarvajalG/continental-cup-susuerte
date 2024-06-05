@@ -99,7 +99,7 @@ function Match(props:any) {
         sum += 2
       }
       if(visiting_team.result === visitorScore && local_team.result === localScore){
-        sum += 2
+        sum += 5
       }
     }
     return sum

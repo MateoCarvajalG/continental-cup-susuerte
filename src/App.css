@@ -250,15 +250,15 @@
   position: relative;
 }
 .img-worldcup {
-  width: 100px;
+  width: 75px;
   position: absolute;
-  top: 25%;
+  top: 0%;
   right: 50%;
   
 }
 .square-match{
   width: 80%;
-  background-color: #7d1030;
+  background-color: rgba(0,0,0,.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -266,8 +266,7 @@
   margin: 20px 0 ;  
 }
 .square-match h5 {
-  color: rgb(135, 133, 133);
-  margin: 0;
+  color: white;
 }
 .teams-finals{
   display: flex;
@@ -282,6 +281,14 @@
   flex-direction: column;
   align-items: center;
   color: white;
+}
+.container-simulator div{
+  display: flex;
+  justify-content: space-around;
+}
+.container-simulator h2{
+  text-align: center;
+  color:black;
 }
 
 @media (max-width:650px) {
