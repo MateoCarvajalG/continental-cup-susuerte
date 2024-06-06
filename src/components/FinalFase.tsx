@@ -23,7 +23,7 @@ function FinalFase(props:any) {
           {
             matchesQuarters.map((match:any)=>{
               return(
-                <SquareMatch service={props.service} match={match}/>
+                <SquareMatch key={match._id} service={props.service} match={match}/>
               )
             })
           }
@@ -32,7 +32,7 @@ function FinalFase(props:any) {
           {
             matchesSemiFinals.map((match:any)=>{
               return(
-                <SquareMatch service={props.service} match={match}/>
+                <SquareMatch key={match._id} service={props.service} match={match}/>
                 )
               })
             }
@@ -41,7 +41,7 @@ function FinalFase(props:any) {
           {
             thirdPlaceMatch.map((match:any)=>{
               return(
-                <SquareMatch service={props.service} match={match}/>
+                <SquareMatch key={match._id} service={props.service} match={match}/>
                 )
               })
             }
@@ -51,7 +51,7 @@ function FinalFase(props:any) {
           {
             matchFinal.map((match:any)=>{
               return(
-                <SquareMatch service={props.service} match={match}/>
+                <SquareMatch key={match._id} service={props.service} match={match}/>
                 )
               })
             }

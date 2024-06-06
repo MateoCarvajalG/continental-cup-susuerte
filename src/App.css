@@ -53,6 +53,12 @@
   top: 0;
   width: 200px;
 }
+.modal-registered .ant-modal-content,.ant-modal-header {
+  background: white;
+}
+.modal-registered .ant-modal-header {
+  background: white;
+}
 .ant-drawer-body{
   padding: 0;
 }

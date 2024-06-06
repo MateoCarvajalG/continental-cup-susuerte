@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import 'antd/dist/antd.css'
-import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import {  Button, Checkbox, Form, Input, notification, Spin  } from 'antd';
+import {  Button, Form, Input, notification, Spin  } from 'antd';
 import { showError } from "../alerts";
 
 
@@ -26,7 +25,6 @@ function ModalUserRegister(props:any) {
           showError(err.response),
       });
     })
-
   };
   const onFinishFailed = (errorInfo:any) => {
     console.log('Failed:', errorInfo);
@@ -43,6 +41,7 @@ function ModalUserRegister(props:any) {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
           layout="vertical"
+          className="form-registered"
         >
           <Form.Item
             label="Nombres"
@@ -89,6 +88,18 @@ function ModalUserRegister(props:any) {
               { pattern:/^[1-9]{1}[0-9]{5,9}$/,message:"Debe estar compuesto solo de caracteres numericos"}
 
           ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Número Celular"
+            name="cellphone"
+            rules={[
+              {
+              required: true,
+              message: 'Introduzca su número celular',
+              },
+            ]}
           >
             <Input />
           </Form.Item>

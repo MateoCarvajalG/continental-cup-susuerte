@@ -1,14 +1,12 @@
 import { useContext, useState } from "react";
 import 'antd/dist/antd.css'
-import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import {  Button, Checkbox, Form, Input, Modal, notification  } from 'antd';
+import {  Button, Form, Input, Modal, notification  } from 'antd';
 import ModalUserRegister from "./ModalUserRegister";
 import { showError } from "../alerts";
 import logo from '../assets/logo.png'
 
 function LoginPage() {
-  let navigate = useNavigate();
   const { signin } = useContext(AuthContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -90,7 +88,7 @@ function LoginPage() {
         </Form>
 
       </div>
-      <Modal footer={[]} title="Detalle del partido" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal footer={[]} className='modal-registered'title="Detalle del partido" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <ModalUserRegister setIsModalOpen={setIsModalOpen}/>
       </Modal>
     </div>

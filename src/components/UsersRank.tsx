@@ -9,9 +9,8 @@ function UsersRank(props:any) {
   const columns = [
       {
         title : 'Nombre',
-        dataIndex: 'names',
         key: 'names',
-        render: (text:any) => <a>{text}</a>
+        render: (text:any) => <a>{text.names}</a>
       },
       { 
         title:"Puntaje",
@@ -19,11 +18,6 @@ function UsersRank(props:any) {
         key: 'score',
         render: (text:any) => <a>{text}</a>
       },
-      // {
-      //   dataIndex: 'name',
-      //   key: 'name',
-      //   render: (text:any) => <a>{text}</a>  
-      // },
     ];
 
   const getRankUser= async()=>{

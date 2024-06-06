@@ -19,7 +19,7 @@ function Match(props:any) {
     {
       dataIndex: '',
       key: 'names',
-      render: (text:any) => <h4>{text.user.names}</h4>
+      render: (text:any) => <h4>{text.user.names +' '+ text.user.surnames}</h4>
     },
     { 
       dataIndex: 'local_score',

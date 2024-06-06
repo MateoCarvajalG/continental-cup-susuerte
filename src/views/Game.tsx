@@ -16,7 +16,6 @@ import UpdateResultsMatches from './UpdateResults';
 import FinalFase from '../components/FinalFase';
 
 const {Header} = Layout
-const {Panel} = Collapse
 function Game() {
 
   const {auth} = useContext(AuthContext);
