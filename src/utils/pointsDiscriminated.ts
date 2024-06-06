@@ -1,3 +1,12 @@
+interface IMatch {
+  local_team: {
+    result: number
+  },
+  visiting_team: {
+    result: number
+  }
+}
+
 export const getPointsMatchDiscriminated = (match: IMatch, local_score: number, visitor_score: number, type: string) => {
   const matchIsATie = match.local_team.result === match.visiting_team.result;
   const userMatchIsATie = local_score === visitor_score;

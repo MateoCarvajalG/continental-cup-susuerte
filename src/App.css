@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Qatar2022';
-  src: local('Qatar2022'), url(./assets/fonts/Branding Medium.otf) format('truetype');
+  src: local('Qatar2022'), url(./assets/fonts/BrandingMedium.otf) format('truetype');
 }
 @font-face {
   font-family: 'Qatar2022-Arabic-Medium';
@@ -8,7 +8,7 @@
 }
 @font-face {
   font-family: 'Qatar2022-Heavy';
-  src: local('Qatar2022-Heavy'), url(./assets/fonts/Branding Black.otf.otf) format('truetype');
+  src: local('Qatar2022-Heavy'), url(./assets/fonts/BrandingBlack.otf) format('truetype');
 }
 .login{
   min-height: 100vh;
