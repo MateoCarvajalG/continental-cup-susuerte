@@ -2,7 +2,6 @@ import 'antd/dist/antd.css'
 import { useContext, useState } from 'react'
 import {Select } from 'antd'; 
 import { AuthContext } from '../context/AuthContext';
-
 function Podium(props:any) {
 
   const {auth} = useContext(AuthContext);

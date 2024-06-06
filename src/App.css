@@ -53,6 +53,19 @@
   top: 0;
   width: 200px;
 }
+.logo-betplay{
+  width: 200px;
+  position: absolute;
+  right: 8%;
+  top: 20%;
+}
+.logo-susuerte{
+  width: 200px;
+  position: absolute;
+  left: 8%;
+  top: 25%;
+  transform: rotate(0deg);
+}
 .modal-registered .ant-modal-content,.ant-modal-header {
   background: white;
 }
@@ -94,6 +107,10 @@
  margin: auto;
  display: flex;
  flex-direction: column;
+}
+.ant-layout-header{
+  line-height: initial;
+  text-align: center;
 }
 .modal-detail-match h1,h2,h3{
   color:white;
@@ -297,6 +314,7 @@
   color:black;
 }
 
+
 @media (max-width:650px) {
   .login {
     justify-content: center;
@@ -304,21 +322,35 @@
   .form-login {
     width: 90%;
   }
-    .img-logo-login {
-  width: 80%;
+
+  .img-logo-login {
+    width: 80%;
   }
   .container-fifa-rank{
     width: 100%;
   }
-  .img-logo{
-    display: none;
+  .container-podium{
+    width: 100% !important;
   }
-  
 }
 
 @media (max-width:850px) {
   .container-podium{
     height: 230px;
-    width: 100%;
+    width: 60%;
   }
+  .img-logo{
+    display: none;
+  }
+  .logo-betplay{
+    width: 90px;
+    right: 0;
+    top: 0;
+  }
+  .logo-susuerte{
+    width: 110px;
+    left: 0;
+    top: 2%;
+  }
+
 }

@@ -9,6 +9,8 @@ import ResultSimulator from '../components/ResultSimulator';
 import FifaRank from '../components/FifaRank';
 import { teamsService } from '../services/teams.services';
 import logo1 from '../assets/logo1.png'
+import betplayImg from '../assets/Logo-Betplay.webp'
+import susuerteImg from '../assets/logo-susuerte.png'
 import { AuthContext } from '../context/AuthContext';
 import AllMatches from '../components/AllMatches';
 import UsersRank from '../components/UsersRank';
@@ -114,8 +116,10 @@ function Game() {
   return (
     <div className="App">
       <Header className='content-header'>
-        <h1>{auth.names}</h1>
-        <h2>{auth.score} puntos</h2>
+        <div>
+          <h2>{auth.names}</h2>
+          <h2>{auth.score} puntos</h2>
+        </div>
       </Header>
       <Drawer 
         title="Reglas de puntuación"
@@ -128,6 +132,8 @@ function Game() {
       </Drawer>
       <img src={logo1} alt="" className='img-logo'/>
       <div className='container-podium-rank'>
+        <img className='logo-betplay' src={betplayImg} alt="" />
+        <img className='logo-susuerte' src={susuerteImg} alt="" />
         <Button 
           className='btn-rules'
           type="primary"
