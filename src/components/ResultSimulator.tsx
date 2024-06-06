@@ -23,13 +23,13 @@ function ResultSimulator() {
   return (
     <div className='container-simulator'>
       <h2>Resultado Real</h2>
-      <div>
+      <div className='inputs-simulator'>
         <InputNumber min={1} max={10}  onChange={onChangeLocalReal} />
         VS
         <InputNumber min={1} max={10}  onChange={onChangeVisitorReal} />
       </div>
       <h2>Resultado Predicho </h2>
-      <div >
+      <div className='inputs-simulator'>
         <InputNumber min={1} max={10}  onChange={onChangeLocal} />
         VS
         <InputNumber min={1} max={10}  onChange={onChangeVisitor} />

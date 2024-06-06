@@ -288,7 +288,7 @@
   align-items: center;
   color: white;
 }
-.container-simulator div{
+.container-simulator .inputs-simulator{
   display: flex;
   justify-content: space-around;
 }
