@@ -1,5 +1,5 @@
-# Notification Project with Factory Method
-This project is a betting application for the Copa America 2024 tournament. It is built using Vite with React 18 and employs the Ant Design v4 library for visualization.
+# CONTINENTAL CUP SUSUERTE
+This project is a betting application for the Continental(America) Cup 2024 tournament. It is built using Vite with React 18 and employs the Ant Design v4 library for visualization.
 
 ## 📄 Table of Contents
 
@@ -14,7 +14,7 @@ This project is a betting application for the Copa America 2024 tournament. It i
 - [📜License](#📜license)
 
 # 📖Description
-The Copa America 2024 Betting Application allows users to place bets on the matches of the Copa America 2024 tournament. Users can view match schedules, place bets, and see the results of their bets. The application features a modern and intuitive UI built with Ant Design v4.
+The Continental(America) Cup 2024 Betting Application allows users to place bets on the matches of the Continental(America) Cup 2024 tournament. Users can view match schedules, place bets, and see the results of their bets. The application features a modern and intuitive UI built with Ant Design v4.
 
 # 🚀Quickstart
 
@@ -64,9 +64,8 @@ This will generate the optimized production-ready files in the dist directory.
 
 # 🔧Built With
 
-* [Node.js](https://nodejs.org/es)
-* [TypeScript](https://www.typescriptlang.org/)
 * [React.js](https://es.react.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Ant Design](https://4x.ant.design/)
 
 # 👥Authors

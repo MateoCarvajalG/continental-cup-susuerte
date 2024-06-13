@@ -4,7 +4,7 @@ import {InputNumber,Modal, notification, Table,Popover,Button } from 'antd';
 import { AuthContext } from '../context/AuthContext';
 import { showError } from '../alerts';
 import { Navigate } from 'react-router-dom';
-import { getPointsMatchDiscriminated } from '../utils/pointsDiscriminated';
+import { discriminatedPoints, getPointsMatchDiscriminated } from '../utils/pointsDiscriminated';
 
 function Match(props:any) {
   const {auth,authDispatch} = useContext(AuthContext);
@@ -14,6 +14,13 @@ function Match(props:any) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [resultMatch, setResultMatch] = useState<any>({});
   const [usersResults,setUsersResults] = useState()
+  const [pointsPerMatch,setPointsPerMatch] = useState<discriminatedPoints>({
+    matchPoints: 0,
+    localScorePoints: 0,
+    visitorScorePoints: 0,
+    exactScore: 0,
+    addPoints: 0
+  })
   const [openPopover, setOpenPopover] = useState(false);
   const columns = [
     {
@@ -71,38 +78,9 @@ function Match(props:any) {
   };
 
   const calculateScore= () =>{
-    let sum = 0
-    const {local_team,visiting_team,has_played} = props.match // resultados reales 
-    console.log(local_team.result)
-    console.log(visiting_team.result)
-    console.log(localScore)
-    console.log(visitorScore)
-
-    
-    if(typeof localScore ==='number' && typeof visitorScore === 'number' && has_played){
-      if(local_team.result > visiting_team.result && localScore > visitorScore ){
-        console.log('entro a ganador local')
-        sum += 3 
-      }
-      if(local_team.result < visiting_team.result && localScore < visitorScore ){
-        console.log('entro a ganador visita')
-        sum += 3 
-      }
-      if(local_team.result === visiting_team.result && localScore === visitorScore ){
-        console.log('entro a ganador empate')
-        sum += 5
-      }
-      if(local_team.result === localScore){
-        sum += 2
-      }
-      if(visiting_team.result === visitorScore){
-        sum += 2
-      }
-      if(visiting_team.result === visitorScore && local_team.result === localScore){
-        sum += 5
-      }
-    }
-    return sum
+    return Object.values(pointsPerMatch).reduce((accumulator,currentValue)=>{
+      return accumulator + currentValue
+    },0)
   }
   
   const handleOpenChange = (newOpen: boolean) => {
@@ -114,75 +92,35 @@ function Match(props:any) {
     <li>
         Puntos por acertar el encuentro: <span className="point">
           {
-            getPointsMatchDiscriminated(
-              {
-                local_team: {result: props.match.local_team.result as number},
-                visiting_team: {result: props.match.visiting_team.result as number}
-              },
-              localScore as number,
-              visitorScore as number,
-              'matchPoints'
-            )
+            pointsPerMatch?.matchPoints
           }
         </span>
     </li>
     <li>
       Puntos por acertar el marcador local: <span className="point">
         {
-          getPointsMatchDiscriminated(
-            {
-              local_team: {result: props.match.local_team.result as number},
-              visiting_team: {result: props.match.visiting_team.result as number}
-            },
-            localScore as number,
-            visitorScore as number,
-            'localScorePoints'
-          )
+          pointsPerMatch?.localScorePoints
         }
       </span>
     </li>
     <li>
       Puntos por acertar el marcador visitante: <span className="point">
         {
-          getPointsMatchDiscriminated(
-            {
-              local_team: {result: props.match.local_team.result as number},
-              visiting_team: {result: props.match.visiting_team.result as number}
-            },
-            localScore as number,
-            visitorScore as number,
-            'visitorScorePoints'
-          )
+          pointsPerMatch?.visitorScorePoints
         }
       </span>
     </li>
     <li>
       Puntos por acertar el resultado exacto: <span className="point">
         {
-          getPointsMatchDiscriminated(
-            {
-              local_team: {result: props.match.local_team.result as number},
-              visiting_team: {result: props.match.visiting_team.result as number}
-            },
-            localScore as number,
-            visitorScore as number,
-            'exactScore'
-          )
+          pointsPerMatch?.exactScore
         }
       </span>
     </li>
     <li>
       Puntos bonificación en caso de empate no exacto: <span className="point">
         {
-          getPointsMatchDiscriminated(
-            {
-              local_team: {result: props.match.local_team.result as number},
-              visiting_team: {result: props.match.visiting_team.result as number}
-            },
-            localScore as number,
-            visitorScore as number,
-            'addPoints'
-          )
+          pointsPerMatch?.addPoints
         }
       </span>
     </li>
@@ -190,9 +128,22 @@ function Match(props:any) {
   )
 
   useEffect( () => {
-    setResultMatch(auth.matchesResults.find((match:any)=> match._id === props.match._id ))
-  },[])
-  
+      setResultMatch(auth.matchesResults.find((match:any)=> match._id === props.match._id ))
+    },[])
+    
+  useEffect(()=>{
+    if(isModalOpen){
+      const resultspoints = getPointsMatchDiscriminated(
+        {
+          local_team: {result: props.match.local_team.result as number},
+          visiting_team: {result: props.match.visiting_team.result as number}
+        },
+        localScore as number,
+        visitorScore as number,
+      )
+      setPointsPerMatch(resultspoints)
+    }
+  },[isModalOpen])
   
   useEffect( () => {
     setLocalStore(resultMatch?.local_score)

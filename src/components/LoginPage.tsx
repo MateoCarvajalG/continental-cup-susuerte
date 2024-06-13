@@ -3,20 +3,26 @@ import 'antd/dist/antd.css'
 import { AuthContext } from "../context/AuthContext";
 import {  Button, Form, Input, Modal, notification  } from 'antd';
 import ModalUserRegister from "./ModalUserRegister";
+import ModalForgotPassword from "./ModalForgotPassword";
 import { showError } from "../alerts";
 import logo from '../assets/logo.png'
+import betplayImg from '../assets/Logo-Betplay.webp'
+import susuerteImg from '../assets/logo-susuerte.png'
 
 function LoginPage() {
   const { signin } = useContext(AuthContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [recoverPassword,setRecoverPassword] = useState(false)
   const [showInvalidAccount,setShowInvalidAccount] = useState(false)
 
   const handleOk = () => {
     setIsModalOpen(false);
+    setRecoverPassword(false);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+    setRecoverPassword(false);
   };
 
   const onFinish = (values:any) => { 
@@ -40,9 +46,13 @@ function LoginPage() {
 
   return (
     <div className="login">
-      <img src={logo} className="img-logo-login" alt="" />
       <div className="form-login">
-        <h1>Ingresa con tu documento de identidad</h1>
+        <h1>Desafio Futbolero Susuerte | BetPlay</h1>
+        <div className="container-logos-login">
+          <img src={betplayImg} className="img-logo-login" alt="" />
+          <img src={susuerteImg} className="img-logo-login" alt="" />
+        </div>
+        <h2>Ingresa con tu documento de identidad</h2>
         <Form
           name="basic"
           labelCol={{
@@ -81,18 +91,24 @@ function LoginPage() {
           >
             <Input.Password />
           </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Ingresar
-            </Button>
-            <Button type="link" onClick={()=>setIsModalOpen(true)}>
-              Registrarse
-            </Button>
+          <Form.Item >
+            <div className="btns-login">
+              <Button type="primary" htmlType="submit">
+                Ingresar
+              </Button>
+              <Button disabled={new Date > new Date('jun 20 2024 12:00')} type='primary' onClick={()=>setIsModalOpen(true)}>
+                Registrarse
+              </Button>
+            </div>
           </Form.Item>
         </Form>
+        <Button style={{color:"white"}} type="link" onClick={()=>setRecoverPassword(true)}>
+          ¿Has olvidado la contraseña? Recupérala aquí
+        </Button>
       </div>
-      <Modal footer={[]} className='modal-registered' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <ModalUserRegister setIsModalOpen={setIsModalOpen}/>
+      <Modal footer={[]} className='modal-registered' open={isModalOpen || recoverPassword} onOk={handleOk} onCancel={handleCancel}>
+        {isModalOpen && <ModalUserRegister setIsModalOpen={setIsModalOpen}/>}
+        {recoverPassword && <ModalForgotPassword setRecoverPassword={setRecoverPassword} />}
       </Modal>
       <Modal 
         open={showInvalidAccount}
@@ -107,7 +123,8 @@ function LoginPage() {
         }
       >
         <h1>¡Hola!</h1>
-        <h3>Para comenzar tu experiencia en esta Copa América, recuerda que necesitas realizar una recarga en BetPlay por un valor mínimo de 10.000 pesos. Si ya has hecho la recarga, por favor, ponte en contacto con el administrador de la actividad para resolver cualquier duda.</h3>
+        <h3>Para empezar tu experiencia, asegúrate de realizar una <a href="https://servicios.susuerte.com/betplay">recarga en BetPlay</a> desde nuestra página web susuerte.com con un valor mínimo de 10,000 pesos. Si ya has realizado tu recarga, nos pondremos en contacto contigo para informarte que ya puedes hacer tus pronósticos.</h3>
+        
       </Modal>
     </div>
   );

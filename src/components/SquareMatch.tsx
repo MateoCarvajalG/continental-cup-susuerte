@@ -177,13 +177,7 @@ function SquareMatch(props:any) {
             />
           </div>
           <h1>Resultados de los participantes</h1>
-          {
-            new Date > new Date(props.match.date) ? 
-              <Table columns={columns} dataSource={usersResults}  pagination={false}/>
-            : 
-              <h3>Una vez iniciado el encuentro, podras ver los resultados de los demas participantes</h3>
-
-          }
+          <Table columns={columns} dataSource={usersResults}  pagination={false}/>
 
         </Modal>
       }

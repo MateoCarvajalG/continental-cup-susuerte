@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { authService } from "../services/auth.service";
+import { authService, IRecoverPassword } from "../services/auth.service";
 interface IPodium{
     champion : string | null,
     runner_up: string | null,
@@ -111,12 +111,17 @@ const useAuthState = () => {
       const resp = await service.signUp(userData)
       return resp
   }
+
+  let recoverPassword = async(data:IRecoverPassword)=>{
+    return await service.recoverPassword(data)
+  }
   return {
     auth,
     authDispatch,
     signin,
     signout,
-    signUp
+    signUp,
+    recoverPassword,
   };
 };
 

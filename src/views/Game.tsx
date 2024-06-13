@@ -122,7 +122,7 @@ function Game() {
         </div>
       </Header>
       <Drawer 
-        title="Reglas de puntuación"
+        title={isRules ? "Reglas Desafio Futbolero Susuerte-Betplay":"Simulador de resultados"}
         placement="right"
         onClose={onClose}
         open={openDrawerRules}
@@ -130,7 +130,7 @@ function Game() {
         {isRules && <Rules />}
         {isSimulator && <ResultSimulator />}
       </Drawer>
-      <img src={logo1} alt="" className='img-logo'/>
+      {/* <img src={logo1} alt="" className='img-logo'/> */}
       <div className='container-podium-rank'>
         <img className='logo-betplay' src={betplayImg} alt="" />
         <img className='logo-susuerte' src={susuerteImg} alt="" />
@@ -139,7 +139,7 @@ function Game() {
           type="primary"
           onClick={()=>showDrawer('rules')}
         >
-          Reglas de puntuación
+         Reglas 
         </Button>
         <Button 
           className='btn-simulator'

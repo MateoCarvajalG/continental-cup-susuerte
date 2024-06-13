@@ -9,7 +9,7 @@ function Podium(props:any) {
   const [imageSecond,setImageSecond] = useState(auth.selectedTeams['runner_up'])
   const [imageFirts,setImageFirts] = useState(auth.selectedTeams['champion'])
   const [imageThird,setImageThird] = useState(auth.selectedTeams['third_place'])
-  const [disabledInput,setDisabledInput] =  useState(new Date() > new Date("jun 20 2024 1:00") )
+  const [disabledInput,setDisabledInput] =  useState(new Date() > new Date("jun 21 2024 00:00") )
 
   const handleChangeSecond = (value:any) => {
     setImageSecond(value)

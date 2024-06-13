@@ -5,20 +5,20 @@ import {  Button, Form, Input, notification, Spin  } from 'antd';
 import { showError } from "../alerts";
 
 
-function ModalUserRegister(props:any) {
-  const { signUp } = useContext(AuthContext);
-  const [registeredUser,setRegisterUser] = useState(false)
+function ModalForgotPassword(props:any) {
+  const { recoverPassword } = useContext(AuthContext);
+  const [isLoad,setIsLoad] = useState(false)
   const onFinish = (values:any) => {
-    setRegisterUser(true)
-    signUp(values).then((res:any)=>{
-      props.setIsModalOpen(false)
-      setRegisterUser(false)
+    setIsLoad(true)
+    recoverPassword(values).then((res:any)=>{
+      props.setRecoverPassword(false)
+      setIsLoad(false)
       notification.success({
-        message: 'Creado',
-        description:"El usuario se ha creado correctamente",
+        message: 'Contraseña restablecida exitosamente.',
+        description:"",
       });
     }).catch((err:any)=>{
-      setRegisterUser(false)
+      setIsLoad(false)
       notification.error({
         message: 'Error',
         description:
@@ -32,7 +32,7 @@ function ModalUserRegister(props:any) {
 
   return (
     <div className="">
-      <Spin tip="Estamos generando los partidos para tu usuario...." spinning={registeredUser}>
+      <Spin tip="Estamos tratando de recuperar tu contraseña..." spinning={isLoad}>
         
         <Form
           name="basic"
@@ -43,38 +43,6 @@ function ModalUserRegister(props:any) {
           layout="vertical"
           className="form-registered"
         >
-          <Form.Item
-            label="Nombres"
-            name="names"
-            rules={[
-                {
-                required: true,
-                message: 'Introduzca su nombre',
-                },
-                { type: 'string', min: 3,message:"El nombre debe tener como minimo 3 caracteres alfabeticos"}, 
-                { type: 'string', max: 20,message:"El nombre debe tener como maximo 20 caracteres alfabeticos"}, 
-                { pattern:/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/,message:"El nombre debe estar compuesto solo de caracteres alfabeticos"},
-
-            ]}
-            >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="Apellidos"
-            name="surnames"
-            rules={[
-              {
-              required: true,
-              message: 'Introduzca sus apellidos',
-              },
-              { type: 'string', min: 3,message:"El apellido debe tener como minimo 3 caracteres alfabeticos"}, 
-              { type: 'string', max: 30,message:"El apellido debe tener como maximo 30 caracteres alfabeticos"}, 
-              { pattern:/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/,message:"El apellido debe estar compuesto solo de caracteres alfabeticos"}
-
-          ]}
-            >
-            <Input />
-          </Form.Item>
           <Form.Item
             label="Documento"
             name="document"
@@ -92,21 +60,8 @@ function ModalUserRegister(props:any) {
             <Input />
           </Form.Item>
           <Form.Item
-            label="Número Celular"
-            name="cellphone"
-            rules={[
-              {
-              required: true,
-              message: 'Introduzca su número celular',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
             label="Contraseña"
-            name="password"
+            name="newPassword"
             rules={[
               {
               required: true,
@@ -122,7 +77,7 @@ function ModalUserRegister(props:any) {
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              Registrar Usuario
+              Recuperar contraseña
             </Button>
           </Form.Item>
         </Form>
@@ -130,4 +85,4 @@ function ModalUserRegister(props:any) {
       </div>
   );
 }
-export default ModalUserRegister;
+export default ModalForgotPassword;
