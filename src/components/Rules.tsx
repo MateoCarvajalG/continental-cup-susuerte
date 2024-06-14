@@ -15,6 +15,7 @@ function Rules() {
           <li>Una vez iniciado el partido, no se aceptan modificaciones en el marcador.</li>
           <li>Solo se permite registrarse hasta el 20 de junio antes de las 12 del mediodía.</li>
           <li>Una vez registrada la cuenta, se le notificará que ha cumplido con las condiciones y ya puede participar de nuestro desafío futbolero.</li>
+          <li>Recuerde registrar el podio con sus equipos favoritos para los tres primeros lugares de la competición antes del 20 de junio a las 7:00 pm. Después de esta fecha y hora, no podrá realizar cambios en el podio. Si no registra su podio a tiempo, perderá la oportunidad de ganar puntos adicionales para el ranking final.</li>
         </ol>
       </Panel>
       <Panel header='Premiación.' key='2'>
@@ -29,7 +30,7 @@ function Rules() {
         <ul>
           <li>Bono consumo pagina web susuerte.com $100.000</li>
           <li>1 Camiseta original selección Colombia</li>
-          <li>1 Gorra Selección Colombia</li>
+          <li>1 Balón Colecionable</li>
         </ul>
         <h1 style={{color:'#CD7F32'}}> 🥉 Tercer Puesto</h1>
         <ul>
