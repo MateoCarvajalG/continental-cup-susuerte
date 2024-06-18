@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { discriminatedPoints, getPointsMatchDiscriminated } from '../utils/pointsDiscriminated'
 
 function ResultSimulator() {
-  const [localScoreReal,setLocalScoreReal] = useState<number>(0)
-  const [visitorScoreReal,setVisitorScoreReal] = useState<number>(0)
-  const [localScore,setLocalScore] = useState<number>(0)
-  const [visitorScore,setVisitorScore] = useState<number>(0)
+  const [localScoreReal,setLocalScoreReal] = useState<number>(-1)
+  const [visitorScoreReal,setVisitorScoreReal] = useState<number>(-1)
+  const [localScore,setLocalScore] = useState<number>(-1)
+  const [visitorScore,setVisitorScore] = useState<number>(-1)
   const [pointsPerMatch,setPointsPerMatch] = useState<discriminatedPoints>({
     matchPoints: 0,
     localScorePoints: 0,
@@ -50,20 +50,20 @@ function ResultSimulator() {
     <div className='container-simulator'>
       <h2>Resultado Real</h2>
       <div className='inputs-simulator'>
-        <InputNumber min={1} max={10}  onChange={onChangeLocalReal} />
+        <InputNumber min={0} max={100}  onChange={onChangeLocalReal} />
         VS
-        <InputNumber min={1} max={10}  onChange={onChangeVisitorReal} />
+        <InputNumber min={0} max={100}  onChange={onChangeVisitorReal} />
       </div>
       <h2>Resultado Predicho </h2>
       <div className='inputs-simulator'>
-        <InputNumber min={1} max={10}  onChange={onChangeLocal} />
+        <InputNumber min={0} max={100}  onChange={onChangeLocal} />
         VS
-        <InputNumber min={1} max={10}  onChange={onChangeVisitor} />
+        <InputNumber min={0} max={100}  onChange={onChangeVisitor} />
       </div>
       <br/>
       <br/>
       {
-        (localScore && visitorScore && localScoreReal && visitorScoreReal) &&
+        (localScore >=0 && visitorScore >=0  && localScoreReal >=0  && visitorScoreReal >=0) &&
         <>
           <h2>Puntos Obtenidos</h2>
           <ul>
