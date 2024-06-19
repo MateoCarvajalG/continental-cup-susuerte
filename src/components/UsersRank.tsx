@@ -10,7 +10,21 @@ function UsersRank(props:any) {
       {
         title : 'Nombre',
         key: 'names',
-        render: (text:any) => <a>{text.names}</a>
+        render: (text:any,_record:any,index:any) =>{
+          let emoji = ''
+          let color = 'white'
+          if(index === 0){
+            emoji = '🥇'
+            color = 'gold'
+          }else if(index === 1){
+            emoji = '🥈'
+            color = '#b1b1b1'
+          }else if(index === 2){
+            emoji = '🥉'
+            color = '#CD7F32'
+          }
+          return <h3 style={{color:color}}><span style={{fontSize:'30px'}}>{emoji}</span>{text.names+' '+ text.surnames}</h3>
+        }
       },
       { 
         title:"Puntaje",
