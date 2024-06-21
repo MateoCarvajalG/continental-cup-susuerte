@@ -256,7 +256,7 @@ function Match(props:any) {
             <h1>{visitorScore !== undefined ? visitorScore : -1}</h1>  
           </div>
           {
-            props.match.local_team.result && props.match.visiting_team.result &&
+            props.match.local_team.result >= 0 && props.match.visiting_team.result >= 0 &&
             <div className='my-points'>
             <h3>En este partido sume : {calculateScore()} Puntos</h3>
             <Popover
